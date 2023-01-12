@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProductionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PD_ORDER">
+          <Key>
+            <PropertyRef Name="OD_ID" />
+            <PropertyRef Name="PD_ID" />
+          </Key>
+          <Property Name="OD_ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PD_ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="OD_DATE" Type="datetime" />
+          <Property Name="OD_QUANTITY" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OD_STATUS" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PD_PRODUCT">
+          <Key>
+            <PropertyRef Name="PD_ID" />
+          </Key>
+          <Property Name="PD_ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PD_NAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="PD_VALUE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PD_PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TP_ID" Type="nvarchar" MaxLength="10" />
+          <Property Name="PD_UNIT" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PD_TYPE">
+          <Key>
+            <PropertyRef Name="TP_ID" />
+          </Key>
+          <Property Name="TP_ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TP_NAME" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="PD_USER">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="USERNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="ProductionModelStoreContainer">
+          <EntitySet Name="PD_ORDER" EntityType="Self.PD_ORDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PD_PRODUCT" EntityType="Self.PD_PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PD_TYPE" EntityType="Self.PD_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PD_USER" EntityType="Self.PD_USER" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProductionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PD_PRODUCT">
+          <Key>
+            <PropertyRef Name="PD_ID" />
+          </Key>
+          <Property Name="PD_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PD_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PD_VALUE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PD_PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TP_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PD_UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PD_TYPE">
+          <Key>
+            <PropertyRef Name="TP_ID" />
+          </Key>
+          <Property Name="TP_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TP_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PD_USER">
+          <Key>
+            <PropertyRef Name="USERNAME" />
+          </Key>
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ProductionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PD_PRODUCT" EntityType="Self.PD_PRODUCT" />
+          <EntitySet Name="PD_TYPE" EntityType="Self.PD_TYPE" />
+          <EntitySet Name="PD_USER" EntityType="Self.PD_USER" />
+          <EntitySet Name="PD_ORDER" EntityType="ProductionModel.PD_ORDER" />
+        </EntityContainer>
+        <EntityType Name="PD_ORDER">
+          <Key>
+            <PropertyRef Name="OD_ID" />
+            <PropertyRef Name="PD_ID" />
+          </Key>
+          <Property Name="OD_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PD_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="OD_DATE" Type="DateTime" Precision="3" />
+          <Property Name="OD_QUANTITY" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OD_STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProductionModelStoreContainer" CdmEntityContainer="ProductionEntities">
+          <EntitySetMapping Name="PD_PRODUCT">
+            <EntityTypeMapping TypeName="ProductionModel.PD_PRODUCT">
+              <MappingFragment StoreEntitySet="PD_PRODUCT">
+                <ScalarProperty Name="PD_ID" ColumnName="PD_ID" />
+                <ScalarProperty Name="PD_NAME" ColumnName="PD_NAME" />
+                <ScalarProperty Name="PD_VALUE" ColumnName="PD_VALUE" />
+                <ScalarProperty Name="PD_PRICE" ColumnName="PD_PRICE" />
+                <ScalarProperty Name="TP_ID" ColumnName="TP_ID" />
+                <ScalarProperty Name="PD_UNIT" ColumnName="PD_UNIT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PD_TYPE">
+            <EntityTypeMapping TypeName="ProductionModel.PD_TYPE">
+              <MappingFragment StoreEntitySet="PD_TYPE">
+                <ScalarProperty Name="TP_ID" ColumnName="TP_ID" />
+                <ScalarProperty Name="TP_NAME" ColumnName="TP_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PD_USER">
+            <EntityTypeMapping TypeName="ProductionModel.PD_USER">
+              <MappingFragment StoreEntitySet="PD_USER">
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PD_ORDER">
+            <EntityTypeMapping TypeName="ProductionModel.PD_ORDER">
+              <MappingFragment StoreEntitySet="PD_ORDER">
+                <ScalarProperty Name="OD_STATUS" ColumnName="OD_STATUS" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="OD_QUANTITY" ColumnName="OD_QUANTITY" />
+                <ScalarProperty Name="OD_DATE" ColumnName="OD_DATE" />
+                <ScalarProperty Name="PD_ID" ColumnName="PD_ID" />
+                <ScalarProperty Name="OD_ID" ColumnName="OD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
