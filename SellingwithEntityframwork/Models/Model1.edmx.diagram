@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8237178454144f0490654b137b90eb9d" Name="Diagram1">
-        <EntityTypeShape EntityType="ProductionModel.PD_PRODUCT" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProductionModel.PD_TYPE" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProductionModel.PD_USER" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ProductionModel.PD_ORDER" Width="1.5" PointX="5.375" PointY="0.75" />
+      <Diagram DiagramId="bc0fa8c0ffa34c07b1e1268375cdb428" Name="Diagram1">
+        <EntityTypeShape EntityType="EvaluateModel.PD_ORDER" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluateModel.PD_PRODUCT" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluateModel.PD_TYPE" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluateModel.PD_USER" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

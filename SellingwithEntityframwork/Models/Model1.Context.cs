@@ -25,9 +25,9 @@ namespace SellingwithEntityframwork.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<PD_ORDER> PD_ORDER { get; set; }
         public virtual DbSet<PD_PRODUCT> PD_PRODUCT { get; set; }
         public virtual DbSet<PD_TYPE> PD_TYPE { get; set; }
         public virtual DbSet<PD_USER> PD_USER { get; set; }
-        public virtual DbSet<PD_ORDER> PD_ORDER { get; set; }
     }
 }
